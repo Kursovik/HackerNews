@@ -1,0 +1,19 @@
+:host{
+  section{
+    width: 50%;
+    margin: 10px auto;
+    .list-item{
+      display: flex;
+      flex-direction: column;
+      span{
+        font-size: 12px;
+      }
+    }
+    .loading-news-list{
+      margin-top: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
