@@ -1,0 +1,47 @@
+<section>
+  <div>
+    <button
+      style="margin: 10px"
+      nz-button
+      nzType="text"
+      (click)="backToFrontPage()"
+    >
+      <-Back
+    </button>
+  </div>
+  <nz-card
+    *ngIf="$storyWithComments | async as storyWithComments; else loadingNewsItem"
+    [nzTitle]="storyWithComments.title"
+  >
+    <div class="story">
+      <div class="story-content">
+        <span><<{{ storyWithComments.author }}>></span>
+        <span [innerHTML]="storyWithComments.text"></span>
+      </div>
+      <div class="comments">
+        <nz-tree [nzData]="$any(storyWithComments.children)">
+          <ng-template #nzTreeTemplate let-node let-origin="origin">
+            <div
+              class="comment-item"
+              (click)="nodeClicked(node)"
+            >
+              <span class="comment-item_author"><<{{ origin.author }}>></span>
+              <span [innerHTML]="origin.text"></span>
+              <div class="comment-item_created_at">
+                <span
+                  >Created_at:
+                  {{ origin.created_at | date: "dd.MM.yyyy" }}</span
+                >
+              </div>
+            </div>
+          </ng-template>
+        </nz-tree>
+      </div>
+    </div>
+  </nz-card>
+  <ng-template #loadingNewsItem>
+    <div class="loading-news-item">
+      <nz-spin nzSize="large" nzSimple></nz-spin>
+    </div>
+  </ng-template>
+</section>

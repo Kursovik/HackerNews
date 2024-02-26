@@ -1,0 +1,38 @@
+:host{
+  section{
+    width: 80%;
+    margin: 10px auto;
+  }
+  .story{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+  }
+  .story-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .comment-item{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-bottom: 1px solid #9a9a9a;
+    &_author{
+      font-size: 17px;
+    }
+    &_created_at{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+  }
+  .loading-news-item{
+     margin-top: 15px;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+   }
+}
